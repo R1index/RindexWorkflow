@@ -129,7 +129,7 @@
       "link_id": 0,
       "save_prefix": "ComfyUI",
       "image": [
-        "57",
+        "122",
         0
       ],
       "vae": [
@@ -558,7 +558,7 @@
       "tiled_encode": true,
       "tiled_decode": true,
       "image": [
-        "56",
+        "119",
         0
       ],
       "model": [
@@ -901,8 +901,8 @@
   "102": {
     "inputs": {
       "images": [
-        "56",
-        2
+        "119",
+        0
       ]
     },
     "class_type": "PreviewImage",
@@ -913,8 +913,8 @@
   "103": {
     "inputs": {
       "images": [
-        "57",
-        2
+        "122",
+        0
       ]
     },
     "class_type": "PreviewImage",
@@ -938,6 +938,136 @@
     "class_type": "Ryuu_TokenCountTextBox",
     "_meta": {
       "title": "Textbox 🐲"
+    }
+  },
+  "117": {
+    "inputs": {
+      "bbox_threshold": 0.5000000000000001,
+      "bbox_dilation": 10,
+      "crop_factor": 2,
+      "drop_size": 10,
+      "sub_threshold": 0.7000000000000002,
+      "sub_dilation": 12,
+      "sub_bbox_expansion": 24,
+      "sam_mask_hint_threshold": 0.7000000000000002,
+      "post_dilation": 0,
+      "bbox_detector": [
+        "62",
+        0
+      ],
+      "image": [
+        "16",
+        0
+      ],
+      "sam_model_opt": [
+        "98",
+        0
+      ],
+      "segm_detector_opt": [
+        "62",
+        1
+      ]
+    },
+    "class_type": "ImpactSimpleDetectorSEGS",
+    "_meta": {
+      "title": "Xray Detector (SEGS)"
+    }
+  },
+  "118": {
+    "inputs": {
+      "segs": [
+        "117",
+        0
+      ]
+    },
+    "class_type": "ImpactIsNotEmptySEGS",
+    "_meta": {
+      "title": "Xray SEGS not empty"
+    }
+  },
+  "119": {
+    "inputs": {
+      "cond": [
+        "118",
+        0
+      ],
+      "tt_value": [
+        "56",
+        0
+      ],
+      "ff_value": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "ImpactConditionalBranch",
+    "_meta": {
+      "title": "Use Xray Detailer?"
+    }
+  },
+  "120": {
+    "inputs": {
+      "bbox_threshold": 0.5000000000000001,
+      "bbox_dilation": 10,
+      "crop_factor": 2,
+      "drop_size": 10,
+      "sub_threshold": 0.7000000000000002,
+      "sub_dilation": 12,
+      "sub_bbox_expansion": 24,
+      "sam_mask_hint_threshold": 0.7000000000000002,
+      "post_dilation": 0,
+      "bbox_detector": [
+        "63",
+        0
+      ],
+      "image": [
+        "119",
+        0
+      ],
+      "sam_model_opt": [
+        "98",
+        0
+      ],
+      "segm_detector_opt": [
+        "63",
+        1
+      ]
+    },
+    "class_type": "ImpactSimpleDetectorSEGS",
+    "_meta": {
+      "title": "Cross Detector (SEGS)"
+    }
+  },
+  "121": {
+    "inputs": {
+      "segs": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "ImpactIsNotEmptySEGS",
+    "_meta": {
+      "title": "Cross SEGS not empty"
+    }
+  },
+  "122": {
+    "inputs": {
+      "cond": [
+        "121",
+        0
+      ],
+      "tt_value": [
+        "57",
+        0
+      ],
+      "ff_value": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "ImpactConditionalBranch",
+    "_meta": {
+      "title": "Use Cross Detailer?"
     }
   }
 }
